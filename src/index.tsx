@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import './HomeScreen';
+import { GlobalStyle } from './indexStyle';
 import HomeScreen from './HomeScreen';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
+    <GlobalStyle />
     <HomeScreen />
   </React.StrictMode>
 );
