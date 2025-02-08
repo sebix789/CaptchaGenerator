@@ -1,4 +1,5 @@
 import { Logo, CaptchaButtons, StyledButton } from './HomeScreenStyle';
+import {Link} from 'react-router-dom'
 
 function HomeScreen() {
   return (
@@ -7,7 +8,11 @@ function HomeScreen() {
         <img src="./logo192.png" alt="reactlogo" />
       </Logo>
       <CaptchaButtons>
-        <StyledButton className="photoButton">photo button</StyledButton>
+        <Link to='generatingScreen'>
+          <StyledButton className="photoButton">
+              photo button
+          </StyledButton>
+        </Link>
         <StyledButton className="codeButton">code button</StyledButton>
       </CaptchaButtons>
       <StyledButton className="historyButton">history button</StyledButton>
