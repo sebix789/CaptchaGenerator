@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import HomeScreen from './HomeScreen/HomeScreen';
-import GeneratingScreen from './GeneratingScreen/GeneratingScreen';
+import GeneratingScreen from 'GeneratingScreen/GeneratingScreen';
 
 function App() {
   return (
