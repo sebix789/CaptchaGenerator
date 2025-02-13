@@ -1,93 +1,71 @@
 import styled from 'styled-components';
 
 export const Logo = styled.div`
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
   text-align: center;
-
+  margin: 2rem 4rem 4rem 2rem;
   img {
     height: 100px;
   }
-
   @media (min-width: 769px) {
     width: 20vw;
     height: 20vh;
-    margin-bottom: 5vh;
-    margin-top: 5vh;
   }
-
   @media (max-width: 768px) {
     width: 40vw;
     height: 15vh;
-    margin-bottom: 5vh;
-    margin-top: 5vh;
   }
 `;
 
 export const CaptchaButtons = styled.div`
-  display: block;
+  display: flex;
   margin: auto;
   border-color: black;
   text-align: center;
+  margin-top:3rem;
+  gap: 2rem;
 
   @media (min-width: 769px) {
     justify-content: space-between;
     width: 60vw;
-
+    flex-direction:row;
     button {
       position: relative;
       width: 25vw;
       margin-bottom: 10vh;
-      padding: 15vh 0;
+      padding: 15vh 2vh;
     }
   }
 
   @media (max-width: 768px) {
+    flex-direction:column;
     button {
-      display: block;
+      display: flex;
       clear: both;
-      margin-left: auto;
-      margin-right: auto;
+      margin: auto;
       width: 50vw;
       margin-bottom: 5vh;
-      padding: 12vh 0;
+      padding: 12vh 2vh;
     }
-  }
 `;
 
-export const StyledButton = styled.button`
-  display: block;
-  background-color: #61dafb;
-  border-radius: 20px;
-  border-width: 0 2px 2px 0;
-  margin: 0 auto;
-
-  &:hover {
-    background-color: lightblue;
-  }
-
-  @media (min-width: 769px) {
-    &.photoButton {
-      float: left;
-    }
-
-    &.codeButton {
-      float: right;
-    }
-
-    &.historyButton {
-      width: 20vw;
-      padding: 2vh 0;
-      margin-top: 5vh;
-    }
-  }
-
-  @media (max-width: 768px) {
-    &.historyButton {
-      margin-top: 7vh;
-      width: 50vw;
-      padding: 2vh 0;
-    }
-  }
-`;
+export const Title = styled.div`
+  display: flex;
+  margin: auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  max-width: 40%;
+  justify-content: center;
+`
+export const HistoryButton = styled.div`
+  display: flex;
+  text-align: center;
+  float: right;
+  margin: 2rem 2rem 4rem 4rem;
+`
+export const Top = styled.div`
+  display: flex;
+  text-align: center;
+  justify-content: space-between
+`

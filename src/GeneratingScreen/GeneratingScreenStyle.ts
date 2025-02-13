@@ -1,57 +1,41 @@
 import styled from 'styled-components';
 
 export const Back = styled.div`
-  display: block;
-  margin: auto;
+  display: flex;
   text-align: center;
+  float: left;
+  margin: 2rem 4rem 4rem 2rem;
 `
 export const Auto = styled.div`
-  display: block;
-  margin: auto;
+  clear:both;
+  display: flex;
   text-align: center;
+  justify-content: center;
+  align-items:center;
+  margin: 4rem;
+  gap:1rem;
 `
 export const Title = styled.div`
-  display: block;
+  display: flex;
   margin: auto;
   text-align: center;
+  font-weight: bold;
+  font-size: 50px;
+  max-width: 40%;
 `
 export const Category = styled.div`
-  display: block;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items:center;
   text-align: center;
+  margin:4rem;
+  gap: 1rem;
 `
-export const Button = styled.button`
-  display: block;
-  background-color: #61dafb;
-  border-radius: 20px;
-  border-width: 0 2px 2px 0;
-  margin: 0 auto;
 
-  &:hover {
-    background-color: lightblue;
-  }
-
-  @media (min-width: 769px) {
-    &.photoButton {
-      float: left;
-    }
-
-    &.codeButton {
-      float: right;
-    }
-
-    &.historyButton {
-      width: 20vw;
-      padding: 2vh 0;
-      margin-top: 5vh;
-    }
-  }
-
-  @media (max-width: 768px) {
-    &.historyButton {
-      margin-top: 7vh;
-      width: 50vw;
-      padding: 2vh 0;
-    }
-  }
-`;
+export const GenerateButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  text-align: center;
+  margin:4rem;
+`

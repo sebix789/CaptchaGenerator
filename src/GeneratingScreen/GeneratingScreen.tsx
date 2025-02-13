@@ -1,29 +1,50 @@
-import {Auto, Title, Category, Button} from './GeneratingScreenStyle'
+import {Back, Auto, Title, Category, GenerateButton} from './GeneratingScreenStyle'
+import { ArrowLeft, ChevronDown, Shuffle } from "lucide-react"
 import {Link} from 'react-router-dom'
-
+import { Button } from "components/ui/button"
+import { Switch } from "components/ui/switch"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "components/ui/dropdown-menu"
 
 function GeneratingScreen() {
   return (
     <div className="page">
-      <Button>
+      <Back>
         <Link to='/'>
-          ← Powrót
+          <Button> <ArrowLeft /> Powrót</Button>
         </Link>
-      </Button>
-      <Auto>
-          <p>Autorozwiązywanie</p>
+      </Back>
+      <Auto> 
+        <Switch />
+        <p>Autorozwiązywanie</p>
       </Auto>
       <div className="content">
         <Title>
             <h2>Wygeneruj Captche Obrazkową</h2>
         </Title>
         <Category>
-            <p>wybierz kategorię</p>
-            <button>random</button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline">Wybierz kategorię <ChevronDown /> </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56">
+            <DropdownMenuRadioGroup>
+              <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="middle">Middle</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
+            </DropdownMenuRadioGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
+            <Button> <Shuffle /> </Button>
         </Category>
-        <Button>
-            GENERUJ CAPTCHE
-        </Button>
+        <GenerateButton>
+          <Button className="px-8 py-4 text-lg h-14">GENERUJ CAPTCHE</Button>
+        </GenerateButton>
       </div>
     </div>
   );

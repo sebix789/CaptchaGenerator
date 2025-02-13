@@ -1,26 +1,36 @@
-import { Logo, CaptchaButtons, StyledButton } from './HomeScreenStyle';
+import { Logo, CaptchaButtons, Title, HistoryButton, Top } from './HomeScreenStyle';
+import { History } from "lucide-react"
 import {Link} from 'react-router-dom'
 import { Button } from "components/ui/button"
-import { Badge } from "components/ui/badge"
 
 function HomeScreen() {
   return (
     <div className="page">
-        {/* HERE: EXAMPLE OF USE LIBRARY*/}
-        <Button variant="outline">Button</Button>
-        <Badge variant="outline">Badge</Badge>
-      <Logo>
-        <img src="./logo192.png" alt="reactlogo" />
-      </Logo>
+      <Top>
+        <Logo>
+          <img src="./images/logo192.png" alt="reactlogo" />
+        </Logo>
+        <HistoryButton>
+          <Button variant="outline" className="historyButton"> <History /> History</Button>
+        </HistoryButton>
+      </Top>
+      <Title>
+        <h2>Wybierz rodzaj Captchy</h2>
+      </Title>
       <CaptchaButtons>
-        <Link to='generatingScreen'>
-          <StyledButton className="photoButton">
-              photo button
-          </StyledButton>
-        </Link>
-        <StyledButton className="codeButton">code button</StyledButton>
+          <Button variant="outline" className="photoButton">
+            <Link to='generatingScreen'>
+              <img src="./images/PhotoCaptchaLogo.svg" alt="PhotoCaptchaLogo" />
+              <p>Captcha Obrazkowa</p>
+            </Link>
+            </Button>
+          <Button variant="outline" className="codeButton">
+          <Link to='generatingScreen'>
+            <img src="./images/CodeCaptchaLogo.svg" alt="PhotoCaptchaLogo" />
+            <p>Captcha Tekstowa</p>
+          </Link>
+          </Button>    
       </CaptchaButtons>
-      <StyledButton className="historyButton">history button</StyledButton>
     </div>
   );
 }
