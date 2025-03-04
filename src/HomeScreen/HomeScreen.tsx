@@ -1,7 +1,13 @@
-import { Logo, CaptchaButtons, Title, HistoryButton, Top } from './HomeScreenStyle';
-import { History } from "lucide-react"
-import {Link} from 'react-router-dom'
-import { Button } from "components/ui/button"
+import {
+  Logo,
+  CaptchaButtons,
+  Title,
+  HistoryButton,
+  Top,
+} from "./HomeScreenStyle";
+import { History } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "components/ui/button";
 
 function HomeScreen() {
   return (
@@ -11,25 +17,28 @@ function HomeScreen() {
           <img src="./images/logo192.png" alt="reactlogo" />
         </Logo>
         <HistoryButton>
-          <Button variant="outline" className="historyButton"> <History /> History</Button>
+          <Button variant="roundedOutline" className="historyButton">
+            {" "}
+            <History /> History
+          </Button>
         </HistoryButton>
       </Top>
       <Title>
         <h2>Wybierz rodzaj Captchy</h2>
       </Title>
       <CaptchaButtons>
-          <Button variant="outline" className="photoButton">
-            <Link to='generatingScreen'>
-              <img src="./images/PhotoCaptchaLogo.svg" alt="PhotoCaptchaLogo" />
-              <p>Captcha Obrazkowa</p>
-            </Link>
-            </Button>
-          <Button variant="outline" className="codeButton">
-          <Link to='generatingScreen'>
+        <Button variant="outline" className="photoButton">
+          <Link to="generatingScreen">
+            <img src="./images/PhotoCaptchaLogo.svg" alt="PhotoCaptchaLogo" />
+            <p>Captcha Obrazkowa</p>
+          </Link>
+        </Button>
+        <Button variant="outline" className="codeButton">
+          <Link to="generatingCode">
             <img src="./images/CodeCaptchaLogo.svg" alt="PhotoCaptchaLogo" />
             <p>Captcha Tekstowa</p>
           </Link>
-          </Button>    
+        </Button>
       </CaptchaButtons>
     </div>
   );
