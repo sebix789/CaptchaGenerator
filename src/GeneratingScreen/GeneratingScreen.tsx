@@ -1,3 +1,4 @@
+import { useState } from "react"
 import {Back, Auto, Title, Category, GenerateButton} from './GeneratingScreenStyle'
 import { ArrowLeft, ChevronDown, Shuffle } from "lucide-react"
 import {Link} from 'react-router-dom'
@@ -12,6 +13,7 @@ import {
 } from "components/ui/dropdown-menu"
 
 function GeneratingScreen() {
+  const [category, setCategory] = useState<string>('Wybierz kategorię');
   return (
     <div className="page">
       <Back>
@@ -30,20 +32,26 @@ function GeneratingScreen() {
         <Category>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline">Wybierz kategorię <ChevronDown /> </Button>
+            <Button variant="outline">{category} <ChevronDown /> </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56">
-            <DropdownMenuRadioGroup>
+            <DropdownMenuRadioGroup
+            value={category} 
+            onValueChange={setCategory}
+            >
               <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="middle">Middle</DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="chomik">Chomik</DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>
           </DropdownMenuContent>
         </DropdownMenu>
             <Button> <Shuffle /> </Button>
         </Category>
         <GenerateButton>
-          <Button className="px-8 py-4 text-lg h-14">GENERUJ CAPTCHE</Button>
+          <Link to={`/captchaPhotos?category=${category}`}>
+            <Button className="px-8 py-4 text-lg h-14">GENERUJ CAPTCHE</Button>
+          </Link>
         </GenerateButton>
       </div>
     </div>
