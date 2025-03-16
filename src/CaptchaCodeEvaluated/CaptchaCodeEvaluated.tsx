@@ -17,10 +17,12 @@ import { Button } from "components/ui/button";
 import { Switch } from "components/ui/switch";
 import { Input } from "components/ui/input";
 import { useState, useRef } from "react";
+import { useCaptcha } from "../CaptchaContext/CatpchaContext";
 
 const CaptchaCodeEvaluated = () => {
   const [fireworks, setFireworks] = useState(false);
   const ref = useRef<FireworksHandlers>(null);
+  const { imageData, modelPrediction } = useCaptcha();
 
   const handleConfetti = () => {
     setFireworks(true);
@@ -53,7 +55,7 @@ const CaptchaCodeEvaluated = () => {
           </Button>
         </CaptchaButton>
         <ImageContainer>
-          <img src="/images/CaptchaExampleImage.png" alt="ExampleCaptcha" />
+          {imageData && <img src={imageData} alt="CAPTCHA" />}
         </ImageContainer>
         <CheckmarkContainer>
           <Checkmark />
@@ -65,7 +67,7 @@ const CaptchaCodeEvaluated = () => {
             size="lg"
             border="success"
             placeholderVariant="success"
-            placeholder="Predykcja modelu:"
+            placeholder={modelPrediction}
           />
         </CaptchaInput>
       </Content>

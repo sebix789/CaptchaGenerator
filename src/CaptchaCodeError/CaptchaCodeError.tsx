@@ -16,10 +16,12 @@ import { Switch } from "components/ui/switch";
 import { Input } from "components/ui/input";
 import Failmark from "components/ui/failmark";
 import Snake from "components/ui/snake";
+import { useCaptcha } from "../CaptchaContext/CatpchaContext";
 
 const CaptchaCodeError = () => {
   const [snake, setSnake] = useState(false);
   const [inputVisible, setInputVisible] = useState(true);
+  const { imageData, modelPrediction } = useCaptcha();
 
   const handleSnake = () => {
     setSnake(true);
@@ -55,7 +57,7 @@ const CaptchaCodeError = () => {
           </Button>
         </CaptchaButton>
         <ImageContainer>
-          <img src="/images/CaptchaExampleImage.png" alt="ExampleCaptcha" />
+          {imageData && <img src={imageData} alt="CAPTCHA" />}
         </ImageContainer>
         <FailmarkContainer>
           <Failmark />
@@ -69,7 +71,7 @@ const CaptchaCodeError = () => {
               size="lg"
               border="danger"
               placeholderVariant="danger"
-              placeholder="Predykcja modelu:"
+              placeholder={modelPrediction}
             />
           )}
         </CaptchaInput>
