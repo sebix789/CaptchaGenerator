@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Back,
   Auto,
@@ -22,6 +22,8 @@ const CaptchaCodeError = () => {
   const [snake, setSnake] = useState(false);
   const [inputVisible, setInputVisible] = useState(true);
   const { imageData, modelPrediction } = useCaptcha();
+  const inputRef = useRef<HTMLDivElement>(null);
+  const [snakePosition, setSnakePosition] = useState({ top: 0, left: 0 });
 
   const handleSnake = () => {
     setSnake(true);
@@ -32,6 +34,13 @@ const CaptchaCodeError = () => {
       setInputVisible(false);
     }, 4000);
   };
+
+  useEffect(() => {
+    if (inputRef.current) {
+      const rect = inputRef.current.getBoundingClientRect();
+      setSnakePosition({ top: rect.top, left: rect.left });
+    }
+  }, [snake]);
 
   return (
     <Page>
@@ -63,8 +72,8 @@ const CaptchaCodeError = () => {
           <Failmark />
           <p>Błędne rozwiązanie!</p>
         </FailmarkContainer>
-        <CaptchaInput>
-          {snake && <Snake onEat={handleEat} />}
+        <CaptchaInput ref={inputRef}>
+          {snake && <Snake onEat={handleEat} position={snakePosition} />}
           {inputVisible && (
             <Input
               disabled
