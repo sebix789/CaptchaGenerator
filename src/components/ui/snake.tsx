@@ -36,10 +36,10 @@ const shiftSnake = keyframes`
   to { transform: translateX(-50px); }
 `;
 
-const SnakeContainer = styled.div`
+const SnakeContainer = styled.div<{ top: number }>`
   position: absolute;
+  top: ${({ top }) => top}px;
   left: 20px;
-  bottom: 120px;
   display: flex;
   align-items: center;
   z-index: 2;
@@ -124,7 +124,10 @@ const Eye = styled.div`
   }
 `;
 
-const Snake: React.FC<{ onEat: () => void }> = ({ onEat }) => {
+const Snake: React.FC<{
+  onEat: () => void;
+  position: { top: number; left: number };
+}> = ({ onEat, position }) => {
   const [segments, setSegments] = React.useState(
     Array(6)
       .fill(0)
@@ -167,7 +170,7 @@ const Snake: React.FC<{ onEat: () => void }> = ({ onEat }) => {
   }, [onEat, growthComplete]);
 
   return (
-    <SnakeContainer>
+    <SnakeContainer top={position.top}>
       <GrowingContainer>
         <SnakeTail />
         {segments.map((segment, index) => (
